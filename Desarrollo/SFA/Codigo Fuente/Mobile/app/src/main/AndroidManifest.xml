@@ -12,14 +12,17 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.activities.MainActivity"></activity>
-        <activity android:name=".controllers.activities.AuthenticateActivity">
+        <activity android:name=".controllers.activities.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".controllers.activities.AuthenticateActivity">
+
         </activity>
 
         <meta-data

@@ -17,7 +17,7 @@ class SettingsRepository(context: Context) {
         set(value) { this.didShowOnBoarding = !value}
 
     companion object {
-        val PREFS_FILENAME = "com.minedu.control.settings"
+        val PREFS_FILENAME = "com.digitalfactory.sfa.settings"
         val PREF_ON_BOARDING = "didShowOnBoarding"
 
     }

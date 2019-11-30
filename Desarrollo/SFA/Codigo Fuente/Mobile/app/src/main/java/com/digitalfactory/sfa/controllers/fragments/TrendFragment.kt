@@ -1,102 +1,117 @@
 package com.digitalfactory.sfa.controllers.fragments
 
+import com.digitalfactory.sfa.R
 import android.content.Context
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.digitalfactory.sfa.models.SettingsRepository
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import com.github.mikephil.charting.model.GradientColor
+import kotlinx.android.synthetic.main.fragment_trend.*
+import com.github.mikephil.charting.utils.ColorTemplate
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
 
-import com.digitalfactory.sfa.R
+import com.github.mikephil.charting.charts.PieChart
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [TrendFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [TrendFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+
+
+
 class TrendFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+
+    lateinit var settings: SettingsRepository
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
+
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_trend, container, false)
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        settings = SettingsRepository(view.context)
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+       /* val pieChart =  PieChart(view.context);
+        val NoOfEmp = arrayListOf()
+
+        NoOfEmp.add(Entry(945f, 0))
+        NoOfEmp.add(Entry(1040f, 1))
+        NoOfEmp.add(Entry(1133f, 2))
+        NoOfEmp.add(Entry(1240f, 3))
+        NoOfEmp.add(Entry(1369f, 4))
+        NoOfEmp.add(Entry(1487f, 5))
+        NoOfEmp.add(Entry(1501f, 6))
+        NoOfEmp.add(Entry(1645f, 7))
+        NoOfEmp.add(Entry(1578f, 8))
+        NoOfEmp.add(Entry(1695f, 9))
+        val dataSet = PieDataSet(NoOfEmp, "Number Of Employees")
+
+        val year = arrayListOf()
+
+        year.add("2008")
+        year.add("2009")
+        year.add("2010")
+        year.add("2011")
+        year.add("2012")
+        year.add("2013")
+        year.add("2014")
+        year.add("2015")
+        year.add("2016")
+        year.add("2017")
+        val data = PieData(year, dataSet)
+        pieChart.setData(data)
+        dataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
+        pieChart.animateXY(5000, 5000)*/
+
+       /* val lineChartView = LineChart(view.context)
+        val revenueComp1 = arrayListOf(10000f, 20000f, 30000f, 40000f)
+        val revenueComp2 = arrayListOf(12000f, 23000f, 35000f, 48000f)
+        val point1 = Entry(0f, 50f)  // on point/index 0, the data is 50
+        val point2 = Entry(1f, 100f) // on point/index 1, the data is 100
+        val point3 = Entry(2f, 75f)  // on point/index 2, the data is 75
+
+        val entries1 = revenueComp1.mapIndexed { index, arrayList ->
+            return@mapIndexed Entry(index.toFloat(), arrayList[index])
         }
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
+        val entries2 = revenueComp1.mapIndexed { index, arrayList ->
+            return@mapIndexed Entry(index.toFloat(), arrayList[index])
+        }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
+        val lineDataSet1 = LineDataSet(entries1, "Company 1")
+        lineDataSet1.color = Color.RED
+        lineDataSet1.setDrawValues(false)
+        lineDataSet1.setAxisDependency(YAxis.AxisDependency.LEFT)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TrendFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TrendFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        val lineDataSet2 = LineDataSet(entries2, "Company 2")
+        lineDataSet2.color = Color.BLUE
+        lineDataSet1.setDrawValues(false)
+        lineDataSet2.setAxisDependency(YAxis.AxisDependency.LEFT)
+
+        val lineDataSets = arrayListOf(lineDataSet1, lineDataSet2)
+        val data = LineData(lineDataSets as List<ILineDataSet>?)
+        lineChartView.data = data*/
     }
 }
