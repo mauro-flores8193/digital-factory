@@ -85,6 +85,8 @@ class TrendFragment : Fragment() {
         dataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
         pieChart.animateXY(5000, 5000)*/
 
+        
+
        /* val lineChartView = LineChart(view.context)
         val revenueComp1 = arrayListOf(10000f, 20000f, 30000f, 40000f)
         val revenueComp2 = arrayListOf(12000f, 23000f, 35000f, 48000f)
