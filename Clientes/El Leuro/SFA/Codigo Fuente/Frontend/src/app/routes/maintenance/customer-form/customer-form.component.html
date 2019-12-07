@@ -1,0 +1,56 @@
+<div class="content-heading">
+  <div>{{ contentHeadingText }}</div>
+</div>
+<div class="card card-default">
+  <div class="card-header">{{ cardHeaderText }}</div>
+  <div class="card-body">
+    <form class="form-horizontal" [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm.value)">
+      <input type="hidden" formControlName="id" id="id"/>
+      <div class="form-group row">
+        <label class="col-xl-2 col-form-label">Nombre *:</label>
+        <div class="col-xl-10">
+          <input class="form-control" type="text" placeholder="" formControlName="name"/>
+          <app-validation-message [errors]="['required']" [control]="customerForm.controls.name">
+          </app-validation-message>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xl-2 col-form-label">RUC *:</label>
+        <div class="col-xl-10">
+          <input class="form-control" type="text" placeholder="" formControlName="ruc"/>
+          <app-validation-message [errors]="['required', 'number', 'rangeLength']" [messages]="{'rangeLength': 'El RUC debe tener 11 dígitos'}" [control]="customerForm.controls.ruc">
+          </app-validation-message>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xl-2 col-form-label">Dirección:</label>
+        <div class="col-xl-10">
+          <input class="form-control" type="text" placeholder="" formControlName="address"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xl-2 col-form-label">Teléfono:</label>
+        <div class="col-xl-10">
+          <input class="form-control" type="text" placeholder="" formControlName="phone"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xl-2 col-form-label">Email:</label>
+        <div class="col-xl-10">
+          <input class="form-control" type="email" placeholder="" formControlName="email"/>
+          <app-validation-message [errors]="['email']" [control]="customerForm.controls.email">
+          </app-validation-message>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xl-2 col-form-label"></label>
+        <div class="col-xl-10">
+          <button class="mr-2 btn btn-sm btn-primary" type="submit" [disabled]="!customerForm.valid">
+            <em class="mr-1 far fa-save"></em> Guardar
+          </button>
+          <button class="btn btn-sm btn-secondary" type="button" (click)="goBack()">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
