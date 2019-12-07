@@ -7,6 +7,9 @@
     <string name="title_bill">Factura</string>
     <string name="title_trend">Tendencias</string>
 
+    <string name="authenticate_button_title">Iniciar Sesión</string>
+
+
     <string name="title_welcome">Bienvenid@</string>
     <string name="about_description">\n\n Aquí estaras informado sobre los consumos eléctricos.
     </string>

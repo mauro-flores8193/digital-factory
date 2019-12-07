@@ -7,6 +7,8 @@
     tools:context=".controllers.activities.MainActivity">
 
 
+
+
     <FrameLayout
         tools:context=".ProductGridFragment"
         android:id="@+id/content"

@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         // After creation, show home content
-        navigateTo(navView.menu.findItem(R.id.navigation_bill))
+        navigateTo(navView.menu.findItem(R.id.navigation_intake))
 
         showOnBoarding()
 

@@ -12,6 +12,7 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".controllers.activities.MainActivity">
             <intent-filter>
 
