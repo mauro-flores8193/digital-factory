@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SFA</string>
+    <string name="title_activity_login">Ingreso</string>
+    <string name="title_home">SFA</string>
+
+    <string name="title_intake">Consumos</string>
+    <string name="title_bill">Factura</string>
+    <string name="title_trend">Tendencias</string>
+
+    <string name="authenticate_button_title">Iniciar Sesión</string>
+
+
+    <string name="title_welcome">Bienvenid@</string>
+    <string name="about_description">\n\n Aquí estaras informado sobre los consumos eléctricos.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
